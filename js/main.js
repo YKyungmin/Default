@@ -1,3 +1,15 @@
+const secs = document.querySelectorAll('section');
+const btns = document.querySelectorAll('ul li');
+const speed = 500;
+let posArr = [];
+secs.forEach((sec) => posArr.push(sec.offsetTop));
+
+btns.forEach((btn, idx) => {
+	btn.addEventListener('click', () => {
+		new Anime(window, { scroll: posArr[idx] }, { duration: speed });
+	});
+});
+
 function splitText(selector, interval = 0, delay = 0) {
 	let count = 0;
 	const txt = selector.innerText;

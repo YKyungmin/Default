@@ -24,7 +24,10 @@ class Anime {
 	//타입에 따라서 들어온 value값을 보정해주는 연산
 	getValue(key, value, type) {
 		let currentValue = null;
-		currentValue = parseFloat(getComputedStyle(this.selector)[key]);
+		if (key !== 'scroll') {
+			currentValue = parseFloat(getComputedStyle(this.selector)[key]);
+		}
+
 		key === 'scroll'
 			? (currentValue = this.selector.scrollY)
 			: (currentValue = parseFloat(getComputedStyle(this.selector)[key]));
